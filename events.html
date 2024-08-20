@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - IIC RSET</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+             line-height: 1.6;
+             color: #333;
+             margin: 0;
+             padding: 0;
+             display: flex;
+             flex-direction: column;
+             min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: #f4f4f4;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Upcoming Events Section */
+        .upcoming-events {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            margin-bottom: 40px;
+        }
+
+        .upcoming-events .event {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .upcoming-events img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Past Events Section */
+        .past-events {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .past-events .event {
+            width: 45%;
+        }
+
+        .past-events img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Keyframes for Looping */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Apply the Animation */
+        .upcoming-events {
+            animation: slide 12s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Upcoming Events</h2>
+            <div class="upcoming-events">
+                <div class="event">
+                    <img src="path-to-your-smart-india-hackathon-poster.jpg" alt="Smart India Hackathon Poster">
+                </div>
+                <!-- Add more events here if needed -->
+            </div>
+        </section>
+
+        <section>
+            <h2>Past Events</h2>
+            <div class="past-events">
+                <div class="event">
+                    <img src="path-to-your-startup-spotlight-poster.jpg" alt="Startup Spotlight Poster">
+                </div>
+                <div class="event">
+                    <img src="path-to-your-my-story-poster.jpg" alt="My Story Poster">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IIC RSET. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const eventsContainer = document.querySelector('.upcoming-events');
+        const events = eventsContainer.querySelectorAll('.event');
+        let currentIndex = 0;
+
+        function showNextEvent() {
+            currentIndex = (currentIndex + 1) % events.length;
+            eventsContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(showNextEvent, 4000); // Adjust timing as needed
+    </script>
+</body>
+</html>

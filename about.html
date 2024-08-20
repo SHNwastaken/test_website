@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IIC RSET</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #countdown {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        /* Fade-in animation for sections */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section {
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        /* Adding a hover effect to buttons or interactive elements */
+        button, a.button-like {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover, a.button-like:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="countdown"></div> <!-- Countdown Timer -->
+
+        <div class="container">
+            <h1>About IIC RSET</h1>
+
+            <div class="section">
+                <h2>Vision</h2>
+                <p>To be a pioneering force in shaping a dynamic culture of innovation and entrepreneurship, where creativity thrives, and groundbreaking solutions emerge to address global challenges.</p>
+            </div>
+
+            <div class="section">
+                <h2>Mission</h2>
+                <p>To empower students and faculty by fostering an environment that nurtures entrepreneurial spirit and innovative thinking. We are committed to providing the resources, mentorship, and opportunities needed to transform novel ideas into successful ventures and drive meaningful impact.</p>
+            </div>
+
+            <div class="section">
+                <h2>Objectives</h2>
+                <ul>
+                    <li>Foster Idea Generation</li>
+                    <li>Enhance Skill Development</li>
+                    <li>Support Incubation and Funding</li>
+                    <li>Foster Collaboration and Networking</li>
+                    <li>Integrate Innovation</li>
+                    <li>Create a sustained generation of Entrepreneurs</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IIC RSET. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            let target = new Date();
+            
+            // Set the target time to 12:30 AM of the next day
+            target.setHours(0, 30, 0, 0); 
+            if (now.getTime() > target.getTime()) {
+                target.setDate(target.getDate() + 1); 
+            }
+
+            const remaining = target - now;
+
+            const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerText = 
+                `Time until 12:30 PM: ${hours}h ${minutes}m ${seconds}s`;
+
+            // Update every second
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>

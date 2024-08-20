@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #countdown {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        /* Fade-in animation for sections */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        section {
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        /* Adding a hover effect to buttons or interactive elements */
+        button, a.button-like {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover, a.button-like:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="countdown"></div> <!-- Countdown Timer -->
+
+        <h1>Welcome to Our Website</h1>
+        <section style="padding-left: 20px; padding-right: 20px;">
+            <h2>A Brief Description About Us</h2>
+            <p>Established in 2018 by the Ministry of Education through the MOE’s Innovation Cell, in collaboration with AICTE, the Institution’s Innovation Council (IIC) aims to foster a culture of innovation and a robust startup ecosystem within higher education institutions. 
+                IIC RSET is dedicated to advancing these objectives by creating a vibrant environment that encourages innovation and entrepreneurial activities. Through initiatives such as workshops, acceleration programs, and collaborative projects, IIC RSET supports students and faculty in transforming groundbreaking ideas into impactful solutions, aligning with the broader mission of nurturing innovation and entrepreneurship within educational institutions.</p>
+        </section>
+        <h4>Want to know more about us? <a href="about.html">Click here</a> to visit our About Us page.</h4>
+        
+        <section>
+            <h2>Contacts</h2>
+            <ul>
+                <li>Instagram: <a href="https://www.instagram.com/iicrset/">https://www.instagram.com/iicrset/</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/company/iic-rset/posts/?feedView=all">https://www.linkedin.com/company/iic-rset/posts/?feedView=all</a></li>
+                <li>Email: <a href="mailto:iic_rset@rajagiritech.edu.in">iic_rset@rajagiritech.edu.in</a></li>
+            </ul>
+
+            <h3>Contact of Faculty in-charges:</h3>
+            <ul>
+                <li>
+                    <strong>Name:</strong> Nitheesh Kurian<br>
+                    <strong>Email:</strong> <a href="mailto:nitheeshk@rajagiritech.edu.in">nitheeshk@rajagiritech.edu.in</a><br>
+                    <strong>Phone:</strong> +91 9497413879
+                </li>
+                <li>
+                    <strong>Name:</strong> Anu Maria Joykutty<br>
+                    <strong>Email:</strong> <a href="mailto:anumj@rajagiritech.edu.in">anumj@rajagiritech.edu.in</a><br>
+                    <strong>Phone:</strong> +91 9746283111
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Organization. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            let target = new Date();
+            
+            // Set the target time to 12:30 AM of the next day
+            target.setHours(12, 30, 0, 0); 
+            if (now.getTime() > target.getTime()) {
+                target.setDate(target.getDate() + 1); 
+            }
+
+            const remaining = target - now;
+
+            const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerText = 
+                `Time until 12:30 PM: ${hours}h ${minutes}m ${seconds}s`;
+
+            // Update every second
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
